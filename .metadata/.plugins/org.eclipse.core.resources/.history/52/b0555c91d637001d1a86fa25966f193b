@@ -1,0 +1,16 @@
+package com.spring4.mvc;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.log4j.Logger;
+import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
+
+//여기선 어노테이션 사용 X
+public class BoardController extends MultiActionController{ // req, res 주입받기 위해서는 얘를 상속받아야 함
+	Logger logger = Logger.getLogger(BoardController.class);
+	public String boardList(HttpServletRequest req, HttpServletResponse res) {
+		logger.info("boardList 호출 성공");
+		return "forward:list.jsp";
+	}
+}

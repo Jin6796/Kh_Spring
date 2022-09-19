@@ -1,0 +1,84 @@
+package com.basic.step1.dao;
+
+import java.util.List;
+import java.util.Map;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.basic.step1.controller.BoardLogic;
+
+@Service
+public class BoardDao {
+	Logger logger = LoggerFactory.getLogger(BoardDao.class);
+
+	@Autowired(required = false)
+	private SqlSessionTemplate sqlSessionTemplate = null;
+
+	public List<Map<String, Object>> boardList(Map<String, Object> pMap) {
+		logger.info("boardList 호출 성공");
+		List<Map<String, Object>> boardList = null;
+		try {
+			boardList = sqlSessionTemplate.selectList("boardList", pMap);
+			logger.info(boardList.toString());
+		} catch (Exception e) {
+			logger.info("Exception: " + e.toString());
+		}
+		return boardList;
+	}
+
+	public int getBNo() {
+		logger.info("getBNo 호출 성공");
+		int result = 0;
+		try {
+			result = sqlSessionTemplate.selectOne("getBNo");
+			logger.info(result+"");
+		} catch (Exception e) {
+			logger.info("Exception: " + e.toString());
+		}
+		return result;
+	}
+	
+	public int bStepUpdate(Map<String, Object> pMap) {
+		int result = 0;
+		try {
+			result = sqlSessionTemplate.update("bStepUpdate", pMap);
+//			sqlSessionTemplate.commit(); // commit default가 true이기 때문에 굳이 안써도 됨
+			logger.info("result: "+result);
+		} catch (Exception e) {
+			logger.info("Exception: " + e.toString());
+		}
+		return result;
+	}
+	
+	public int getBGroup() {
+		logger.info("getBGroup 호출 성공");
+		int result = 0;
+		try {
+			result = sqlSessionTemplate.selectOne("getBGroup");
+			logger.info(result+"");
+		} catch (Exception e) {
+			logger.info("Exception: " + e.toString());
+		}
+		return result;
+	}
+	
+	public int boardMInsert(Map<String, Object> pMap) {
+		int result = 0;
+		try {
+			result = sqlSessionTemplate.update("boardMInsert", pMap);
+			logger.info("result: "+result);
+		} catch (Exception e) {
+			logger.info("Exception: " + e.toString());
+		}
+		return result;
+	}
+
+	public int boardInsert(Map<String, Object> pMap) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+}

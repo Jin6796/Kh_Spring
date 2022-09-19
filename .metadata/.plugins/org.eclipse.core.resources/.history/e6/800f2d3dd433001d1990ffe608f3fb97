@@ -1,0 +1,51 @@
+package com.basic.step1.controller;
+
+import java.util.List;
+import java.util.Map;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.basic.step1.dao.BoardDao;
+@Service
+public class BoardLogic {
+	Logger logger = LoggerFactory.getLogger(BoardLogic.class);
+
+	@Autowired(required=false)
+	private BoardDao boardDao = null;
+//	로직에서는 그대로 모두 사용함 - RequestParam이나 RequestMapping, Model 모두 필요 없음
+//	공통된 관심사는 트랜잭션 처리 - 하나의 메소드에서 Dao에 두 개 메소드 호출
+//	board_master_t, board_sub_t
+
+	public List<Map<String, Object>> boardList(Map<String, Object> pMap) {
+		logger.info("boardList 호출 성공");
+		List<Map<String, Object>> boardList = null;
+		boardList = boardDao.boardList(pMap);
+		return boardList;
+	}
+
+	public boardInsert(Map<String, Object> pMap) {
+		int result = 0;
+		try {
+			// MapperConfig에 등록된 서버 정보를 통해 커넥션을 연결
+			sqlSession = sqlSessionFactory.openSession();
+			// insert 메소드 대신 update를 사용한 것은 selectKey라는 속성으로
+			// insert 메소드의 리턴타입이 Object로 되어 있기 때문에 update를 사용한 것!
+			// delete를 사용해도 결과는 같음
+			// 사용자가 입력한 값을 HashMapBinder클래스를 통해 Map에 담고, insert문을 호출할 때 파라미터로 넘긴다.
+			result = sqlSession.update("boardMInsert", pMap);
+			// 물리적인 테이블에 등록하는 것이니 반드시 커밋할 것!!
+			sqlSession.commit();     
+			//insert here
+			logger.info("result: "+result);
+		} catch (Exception e) {
+			logger.info("Exception: " + e.toString());
+		} finally {
+			sqlSession.close();
+		}
+		return result;
+	}
+
+}

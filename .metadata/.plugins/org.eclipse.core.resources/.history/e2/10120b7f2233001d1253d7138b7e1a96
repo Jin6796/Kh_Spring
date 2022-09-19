@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.mapper.testMapper">
+	<select id="testList" parameterType="map" resultType="map">
+		SELECT test_no, test_title, test_content
+		  FROM test
+		  <trim prefix="WHERE" prefixOverrides="AND|OR">
+		  	<if test="test_title != null">
+		  	<!-- 이렇게하면 인덱스 사용은 불가 -->
+		  		test_title like '%'||#{keyword}||'%'
+<!-- 		  	인덱스 쓰고 싶으면 이렇게!
+		  		test_title like #{keyword}||'%' -->
+		  	</if>
+		  	<if test="test_content != null">
+		  		test_content like '%'||#{keyword}||'%'
+		  	</if>
+		  </trim>
+	</select>
+	
+	<delete id="testDeleteAll" parameterType="arrayj">
+		DELETE FROM test
+		 WHERE test_no IN 
+		 <foreach item="item" index="index" collection="list">
+		 	#{item}
+		 </foreach>
+	</delete>
+</mapper>

@@ -1,0 +1,29 @@
+package com.basic.step1.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/board/*")
+public class BoardController {
+	@Autowired
+	private BoardLogic boardLogic = null;
+	@GetMapping("boardList.sp4")
+	public String boardList(HttpServletRequest req, HttpServletResponse res) {
+		logger.info("boardList 호출 성공");
+//		ModelAndView 객체를 설계함에 따라서 req가 없어도 조회결과를 담을 수 있게 됨
+		Map<String,Object> pMap = new HashMap<>();
+		HashMapBinder hmb = new HashMapBinder(req);
+		hmb.bind(pMap);
+		ModelAndView mav = new ModelAndView(req);
+		List<Map<String,Object>> boardList = null;
+		////////////////////////////////////////////////////////////////////////// 여기서 호출했네!!!!!!!!!!!!!!!!!!!!!!
+//		boardLogic = new Board3Logic(); // 전변이긴 한데 주소번지가 다름
+//		Board3Logic boardLogic = new Board3Logic(); // 지변
+		boardList = boardLogic.boardList(pMap);
+		mav.addObject("boardList", boardList);
+		mav.setViewName("board3/boardList");
+		return "forward:boardList.jsp";
+	}
+}

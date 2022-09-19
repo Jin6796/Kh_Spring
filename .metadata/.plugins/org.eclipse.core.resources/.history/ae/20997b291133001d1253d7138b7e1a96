@@ -1,0 +1,11 @@
+package com.basic.step1.dao;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class TestDao {
+	@Autowired(required=false)
+	private SqlSessionTemplate sqlSessionTemplate = null;
+}

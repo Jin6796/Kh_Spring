@@ -1,0 +1,19 @@
+package com.basic.step1.dao;
+
+import java.util.List;
+import java.util.Map;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class TestDao {
+	@Autowired(required=false)
+	private SqlSessionTemplate sqlSessionTemplate = null;
+
+	public List<Map<String, Object>> testList(Map<String, Object> pmap) {
+		
+		return testList;
+	}
+}

@@ -1,0 +1,30 @@
+package com.spring4.mvc;
+
+public class BoardLogic {
+
+	public void boardList(Object object) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void boardDetail(Object object) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void boardInsert(Object object) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void boardUpdate(Object object) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void boardDelete(Object object) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

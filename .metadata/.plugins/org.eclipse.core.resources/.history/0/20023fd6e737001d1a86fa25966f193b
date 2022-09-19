@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+   <bean id="default-handler-mapping" class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
+   <bean name="/myCar.sp" class="com.spring4.mvc.Sonata" />
+   <bean name="/di/insaList.sp" class="com.di.ListController">
+   <!-- property의 이름은 setter메소드이름과 반드시(꼭) 같아야 한다 -->
+	<property name="insaBean">
+		<list>
+			<value>Hi!!!</value>
+			<value>Have a good time!</value>
+			<value>Have a nice day!</value>
+		</list>
+	 </property>
+   </bean>
+   <bean name="/di/insaMap.sp" class="com.di.MapController">
+   <!-- property의 이름은 setter메소드이름과 반드시(꼭) 같아야 한다 -->
+	 <property name="insaMsg">
+	 	<map>
+	 		<entry>
+	 			<key><value>one</value></key>
+	 			<value>안녕!</value>
+	 		</entry>
+	 		<entry>
+	 			<key><value>two</value></key>
+	 			<value>굿뭘닁!</value>
+	 		</entry>
+	 		<entry>
+	 			<key><value>three</value></key>
+	 			<value>해버굿타임</value>
+	 		</entry>
+	 	</map>
+	 </property>
+   </bean>
+   <bean id="url-mapping"
+         class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+         <property name="mappings">
+            <props>
+               <prop key="/login.sp">auth-controller</prop>
+               <prop key="/doEmp.sp">emp-controller</prop>
+               <prop key="/board/boardList.sp">board-controller</prop>
+               <prop key="/board/boardDetail.sp">board-controller</prop>
+               <prop key="/board/boardInsert.sp">board-controller</prop>
+               <prop key="/board/boardUpdate.sp">board-controller</prop>
+               <prop key="/board/boardDelete.sp">board-controller</prop>
+            </props>
+         </property>
+   </bean>       
+   
+   <!-- xml에서 bean태그에 클래스를 선언함 AuthController auth-controller = null; -->     
+  	<bean id="board-controller" class="com.spring4.mvc.BoardController">
+  		<property name="methodNameResolver" ref="board-resolver"/>
+		<property name="boardLogic" ref="board-logic"/>
+  	</bean>
+  	 <bean id="board-resolver" class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver">
+       <property name="mappings">
+          <props>
+             <prop key="/board/boardList.sp">boardList</prop>
+             <prop key="/board/boardDetail.sp">boardDetail</prop>
+             <prop key="/board/boardInsert.sp">boardInsert</prop>
+             <prop key="/board/boardUpdate.sp">boardUpdate</prop>
+             <prop key="/board/boardDelete.sp">boardDelete</prop>
+          </props>
+       </property>
+    </bean>
+    
+  	<bean id="auth-controller" class="com.spring4.mvc.AuthController">
+		<property name="methodNameResolver" ref="auth-resolver"/>
+		<!-- property의 name은 setter객체주입법 코드의 이름이어야 합니다. -->
+		<property name="authLogic" ref="auth-logic"/>
+  	</bean>
+    <bean id="auth-resolver" class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver">
+       <property name="mappings">
+          <props>
+             <prop key="/login.sp">login</prop>
+          </props>
+       </property>
+    </bean>
+    
+  	<bean id="emp-controller" class="com.spring4.tr.EmpController">
+		<property name="methodNameResolver" ref="emp-resolver"/>
+		<!-- property의 name은 setter객체주입법 코드의 이름이어야 합니다. -->
+		<property name="empLogic" ref="emp-logic"/>
+  	</bean>
+	<bean id="emp-resolver" class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver">
+		<property name="mappings">
+			<props>
+				<prop key="/doEmp.sp">doEmp</prop>
+			</props>
+		</property>
+	</bean>
+    
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+       <property name="prefix" value="/WEB-INF/views/" />
+       <property name="suffix" value=".jsp"/>
+    </bean>
+</beans>

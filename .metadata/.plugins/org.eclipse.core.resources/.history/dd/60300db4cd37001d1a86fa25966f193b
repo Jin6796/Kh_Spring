@@ -1,0 +1,8 @@
+package com.spring4.mvc;
+
+import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
+
+//여기선 어노테이션 사용 X
+public class BoardController extends MultiActionController{
+
+}

@@ -1,0 +1,8 @@
+package com.basic.step1.dao;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class TestDao {
+
+}

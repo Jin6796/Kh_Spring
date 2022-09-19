@@ -1,0 +1,5 @@
+package com.spring4.tr;
+
+public class EmpDao {
+
+}
