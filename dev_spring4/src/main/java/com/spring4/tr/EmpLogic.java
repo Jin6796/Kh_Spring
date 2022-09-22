@@ -34,6 +34,7 @@ public class EmpLogic {
 			deptDao.deptInsert(dmap);
 			empDao.empInsert(emap);
 		} catch (DataAccessException de) {
+			// 스프링에서 aop를 pointcut하기 위한 코드
 			throw de;
 		}
 		return 0;

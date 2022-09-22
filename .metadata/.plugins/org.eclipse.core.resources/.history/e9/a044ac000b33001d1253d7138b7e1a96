@@ -1,8 +1,0 @@
-package com.basic.step1.logic;
-
-import org.springframework.stereotype.Service;
-
-@Service
-public class TestLogic {
-
-}

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
 <aop-project name="demo0913"/>
+<aop-project name="demo0921"/>
 <aop-project name="dev_spring4">
 <aspect-definition advice-class-name="com.spring4.tr.AfterThrowingAdvice" advice-method-name="exceptionMsg" advice-type="AFTER" aspect-end-line-number="75" aspect-name="afterThrowing" aspect-start-line-number="75" factory-id="org.springframework.ide.eclipse.aop.core.beanAspectDefinitionElementFactory" file="/dev_spring4/src/main/webapp/WEB-INF/spring-service.xml" pointcut-expression="execution(* com.spring4.tr.*Logic.*(..))" proxy-target-class="false">
 <aop-reference advice-type="AFTER" bean="1:BeansModel|2:dev_spring4|3:src/main/webapp/WEB-INF/spring-service.xml|7:beans:8|8:dept-logic:63" bean-file="/dev_spring4/src/main/webapp/WEB-INF/spring-service.xml" bean-start-line="63" factory-id="org.springframework.ide.eclipse.aop.core.aopReferenceElementFactory" file="/dev_spring4/src/main/webapp/WEB-INF/spring-service.xml" source="=dev_spring4/src\/main\/java&lt;com.spring4.tr{AfterThrowingAdvice.java[AfterThrowingAdvice~exceptionMsg" source-start-line="5" target="=dev_spring4/src\/main\/java&lt;com.spring4.tr{DeptLogic.java[DeptLogic~deptInsert~QMap\&lt;QString;QObject;&gt;;" target-start-line="16"/>

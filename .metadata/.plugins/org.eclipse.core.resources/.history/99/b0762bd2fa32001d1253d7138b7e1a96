@@ -1,8 +1,0 @@
-package com.vo;
-import lombok.Getter;
-
-@Getter
-@Setter
-public class TestVO {
-
-}

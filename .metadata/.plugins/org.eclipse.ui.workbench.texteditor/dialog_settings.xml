@@ -1,36 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="mreq"/>
+		<item key="selection" value="crudBtnSel"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="mreq"/>
-			<item value="filedown"/>
-			<item value="fileDown"/>
-			<item value="multipart"/>
+			<item value="crudBtnSel"/>
+			<item value="getBoardList"/>
+			<item value="alert"/>
+			<item value="aleart"/>
+			<item value="filename"/>
+			<item value="name"/>
+			<item value=".sp4"/>
 			<item value="sp4"/>
-			<item value="pj"/>
-			<item value="common-io"/>
-			<item value="getBoard"/>
-			<item value="조회"/>
-			<item value="글"/>
-			<item value="글 입력"/>
-			<item value="testDelate"/>
-			<item value="3.4"/>
-			<item value="array"/>
-			<item value="all"/>
+			<item value="pro"/>
+			<item value="fpro"/>
+			<item value="select"/>
+			<item value="selectone"/>
+			<item value="selectOne"/>
+			<item value="조건"/>
+			<item value=".sp4&quot;"/>
 		</list>
 		<list key="replacehistory">
+			<item value=""/>
+			<item value="&quot;"/>
+			<item value="sp"/>
+			<item value=".sp"/>
 			<item value="sp4"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="1058"/>
-		<item key="DIALOG_Y_ORIGIN" value="426"/>
+		<item key="DIALOG_X_ORIGIN" value="1254"/>
+		<item key="DIALOG_Y_ORIGIN" value="248"/>
 		<item key="DIALOG_WIDTH" value="288"/>
 		<item key="DIALOG_HEIGHT" value="391"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>

@@ -35,7 +35,7 @@ public class BoardLogic {
 	// 하나의 메소드 안에서 DAO의 여러 메소드를 호출할 수 있음 - 트랜잭션처리 공통된 관심사를 갖는 부분
 	// 로직은 여러 가지의 처리를 할 수 있고 이에 따른 선택기준이 필요한 부분
 	public int boardInsert(Map<String, Object> pMap) {
-		logger.info("boardInsert 호출 성공");
+		logger.info("boardInsert 호출 성공 : "+pMap);
 		int result = 0;
 		int b_no = 0;
 		int b_group = 0;

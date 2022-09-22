@@ -54,6 +54,9 @@
 	이 id값이 나중에 포인트컷을 참조할 때 사용된다.
 --> 
 	<bean id="afterThrowing" class="com.spring4.tr.AfterThrowingAdvice" />
+	<bean id="board-logic" class="com.spring4.mvc.BoardLogic">
+		<property name="boardDao" ref="board-dao" />
+	</bean>	
 	<bean id="auth-logic" class="com.spring4.mvc.AuthLogic">
 		<property name="authDao" ref="auth-dao" />
 	</bean>
@@ -78,4 +81,5 @@
 			<tx:method name="cud*" />
 		</tx:attributes>
 	</tx:advice>
+	<!-- 트랜잭션 처리 설정 끝  -->
 </beans>
