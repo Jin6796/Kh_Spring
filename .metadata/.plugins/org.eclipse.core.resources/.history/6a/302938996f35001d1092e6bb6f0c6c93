@@ -1,7 +1,0 @@
-package com.spring4.tr;
-
-import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
-
-public class DeptController extends MultiActionController {
-
-}

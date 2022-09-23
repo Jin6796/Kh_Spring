@@ -1,9 +1,0 @@
-package com.mvc.kh;
-
-public class DITest {
-//	View view = new View();
-	View view = new View(service);
-	public static void main(String[] args) {
-		
-	}
-}

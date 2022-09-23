@@ -1,8 +1,0 @@
-package com.spring4.tr;
-
-import org.apache.log4j.Logger;
-
-public class EmpDao {
-	Logger logger = Logger.getLogger(EmpDao.class);
-
-}
