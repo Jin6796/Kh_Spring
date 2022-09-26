@@ -11,6 +11,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.logic.MemberLogic;
+import com.example.demo.vo.MemberVO;
 
 @Service // 모델 계층에 붙이는 @Component의 자손 어노테이션!
 public class MemberDao {
@@ -31,5 +32,19 @@ public class MemberDao {
 			logger.info("Exception : "+e.toString());
 		} 
 		return result;
+	}
+	
+	public List<Map<String, Object>> memberList(Map<String, Object> pMap) {
+		logger.info("memberList 호출 성공 ==> "+ pMap);
+		List<Map<String, Object>> memberList = null;
+		memberList = sqlSessionTemplate.selectList("memberList", pMap);
+		return memberList;
+	}
+
+	public MemberVO login(Map<String, Object> pMap){
+		logger.info("login 호출 성공");
+		MemberVO mVO = null;
+		mVO = sqlSessionTemplate.selectOne("login", pMap);
+		return mVO;
 	}
 }

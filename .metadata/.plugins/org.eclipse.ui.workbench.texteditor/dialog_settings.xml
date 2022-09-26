@@ -1,30 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value=""/>
+		<item key="selection" value="쪽지쓰기"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="가입"/>
-			<item value="input3"/>
-			<item value="input"/>
-			<item value="b"/>
-			<item value="board"/>
-			<item value="zipcode"/>
+			<item value="쪽지쓰기"/>
+			<item value="쪽지"/>
+			<item value="dlg_memo"/>
+			<item value="click"/>
+			<item value="dbl"/>
+			<item value="member"/>
+			<item value="이름"/>
+			<item value="send_messa"/>
 			<item value="d_zipcode"/>
-			<item value="crudBtnSel"/>
-			<item value="getBoardList"/>
-			<item value="alert"/>
-			<item value="aleart"/>
-			<item value="filename"/>
-			<item value="name"/>
-			<item value=".sp4"/>
-			<item value="sp4"/>
+			<item value="zipcodeForm"/>
+			<item value="dlg_zipcode"/>
+			<item value="modal"/>
+			<item value="moda"/>
+			<item value="버튼"/>
+			<item value="memoForm"/>
 		</list>
 		<list key="replacehistory">
+			<item value="memo"/>
 			<item value=""/>
 			<item value="member"/>
 			<item value="&quot;"/>
@@ -34,8 +35,8 @@
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="1024"/>
-		<item key="DIALOG_Y_ORIGIN" value="248"/>
+		<item key="DIALOG_X_ORIGIN" value="1049"/>
+		<item key="DIALOG_Y_ORIGIN" value="406"/>
 		<item key="DIALOG_WIDTH" value="288"/>
 		<item key="DIALOG_HEIGHT" value="391"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>

@@ -5,7 +5,33 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2022-09-22T22:30:55Z</updated>
+  <updated>2022-09-23T07:00:00Z</updated>
+  <entry>
+    <title>My SpringOne 2022</title>
+    <link rel="alternate" href="https://spring.io/blog/2022/09/23/my-springone-2022" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2022-09-23:4929</id>
+    <updated>2022-09-23T07:00:00Z</updated>
+    <content type="html">&lt;p&gt;It has taken me an embarrassingly long time to appreciate and understand that the devil is in the details regarding software development. Writing happy-path business logic isn&amp;rsquo;t the hard part! It&amp;rsquo;s the failure cases, observability, resilience, and process. It&amp;rsquo;s security and other so-called non-functional requirements. It&amp;rsquo;s architecting &lt;em&gt;for agility&lt;/em&gt;. It&amp;rsquo;s production. Spring is unique because it sits at the crossroads of many exciting application development discussions. &lt;/p&gt;
+&lt;p&gt;Spring&amp;rsquo;s community contains multitudes and is one of the key defining features. This diversity of discussion means that any conference that endeavors to cover the full sweep of ideas has its work cut out. I don&amp;rsquo;t know of any other show - and I&amp;rsquo;ve spoken at &lt;em&gt;many thousands&lt;/em&gt; of shows and events in my life! - that completely covers the different dimensions of application development like SpringOne does. I feel like SpringOne is the closest, anyway, and I want to talk about what I&amp;rsquo;m looking forward to about this year&amp;rsquo;s SpringOne 2022 event.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s important to preface with the following list of the things I want to see at SpringOne: &lt;em&gt;my&lt;/em&gt; personal, particular preferences around concepts I&amp;rsquo;m going to explore this SpringOne, happening in San Francisco 6-8 December 2022. &lt;a href="https://springone.io/"&gt;Have you registered&lt;/a&gt;?&lt;/p&gt;&lt;h2&gt;&lt;a href="#case-studies" class="anchor" name="case-studies"&gt;&lt;/a&gt;Case Studies&lt;/h2&gt;
+&lt;p&gt;Has it been a while since you read a juicy whitepaper describing some organization&amp;rsquo;s architecture for tomorrow? Don&amp;rsquo;t fret. SpringOne has you covered with case studies from the world&amp;rsquo;s largest, most significant, and best. &lt;/p&gt;
+&lt;p&gt;Some of the world&amp;rsquo;s biggest, smallest, and most successful organizations use Spring Boot to build better production-worthy software. &lt;/p&gt;&lt;h2&gt;&lt;a href="#graphql" class="anchor" name="graphql"&gt;&lt;/a&gt;GraphQL&lt;/h2&gt;
+&lt;p&gt;A considerable part of the move to microservices, of the teasing out into separate standalone services, is the work required to quickly and usefully pull them back together to provide a consistent view of the state to clients that comprise all of the data. I love Spring Cloud Gateway. I love reactive programming. But somehow, GraphQL (especially with reactive programming and API gateways!) seems like the most natural mechanism I&amp;rsquo;ve encountered for tying services together. It is elegant and caters to real-world application-level concerns. And it is supported in Spring Boot 2.7 and beyond in both reactive and imperative environments. Curious? Me too! &lt;/p&gt;&lt;h2&gt;&lt;a href="#migrating-to-spring-boot-3-ahead-of-time-compilation" class="anchor" name="migrating-to-spring-boot-3-ahead-of-time-compilation"&gt;&lt;/a&gt;Migrating To Spring Boot 3 Ahead-of-Time Compilation&lt;/h2&gt;
+&lt;p&gt;Some significant new features (and some &lt;em&gt;changes&lt;/em&gt;!) are in store for Spring Framework 6 and Spring Boot 3 application developers. Many are under the covers, but some will be front-and-center in the new Spring Framework 6 and Spring Boot release. I&amp;rsquo;m looking for guidance on things I can do to prepare for AOT processing. I want to know what a new java 17 baselines implies for my applications. And I want to know what the new Jakarta EE APIs mean for my application. I want to know about tools to make embracing these new and novel possibilities easy. I want guidance. You can be sure this stuff will be center stage at SpringOne 2022, where we will usher in a new generation and a new foundation for Spring Framework and Spring Boot.&lt;/p&gt;&lt;h2&gt;&lt;a href="#azure-spring-apps-and-azure-spring-apps-enterprise" class="anchor" name="azure-spring-apps-and-azure-spring-apps-enterprise"&gt;&lt;/a&gt;Azure Spring Apps and Azure Spring Apps Enterprise&lt;/h2&gt;
+&lt;p&gt;Years ago, our friends over at Microsoft and we launched a partnership to develop a new platform that caters to Spring application developers and runs on top of Microsoft&amp;rsquo;s Azure cloud platform. We call this &lt;strong&gt;Azure Spring Apps&lt;/strong&gt;, and it&amp;rsquo;s fantastic. Azure Spring Apps features the things we know our users will care for. The offering gets better all the time, and this year we unveiled an &lt;strong&gt;Azure Spring Apps Enterprise&lt;/strong&gt; tier with even more features designed to make deploying and managing your applications at scale a breeze. &lt;/p&gt;&lt;h2&gt;&lt;a href="#kubernetes" class="anchor" name="kubernetes"&gt;&lt;/a&gt;Kubernetes&lt;/h2&gt;
+&lt;p&gt;Kubernetes keeps improving! The work we&amp;rsquo;re doing in the Tanzu division of VMware around the Tanzu Application Platform (TAP) is elevating the abstraction level, building on Kubernetes so that Kubernetes can meet developers where they are. We&amp;rsquo;ll have a ton of talks that look at how your application interacts with Kubernetes, from continuous delivery and deployment to application packaging and operations.&lt;/p&gt;&lt;h2&gt;&lt;a href="#my-friends-and-the-community" class="anchor" name="my-friends-and-the-community"&gt;&lt;/a&gt;My Friends and the Community&lt;/h2&gt;
+&lt;p&gt;This one, I almost feel, doesn&amp;rsquo;t need to be said! Sure, it&amp;rsquo;s gonna be &lt;em&gt;weird&lt;/em&gt;! We just got out of a pandemic! But I&amp;rsquo;ve craved that human connection. I&amp;rsquo;ve missed &lt;em&gt;selfies&lt;/em&gt;. (A masked selfie is still a selfie!) I&amp;rsquo;ve missed the &lt;em&gt;hallway&lt;/em&gt; track. I can&amp;rsquo;t wait to see you all. I can&amp;rsquo;t wait to see all my friends on &lt;a href="https://spring.io/team"&gt;the Spring team&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;From a purely personal perspective, I look forward to welcoming my longtime friends on the Spring team and in the community to my hometown of san Francisco. I love San Francisco all year round, and you&amp;rsquo;ll probably like it, too! Don&amp;rsquo;t forget your hoodie, tho. It doesn&amp;rsquo;t snow here, but it gets windy and sometimes dips below 60F in the daytime. &lt;/p&gt;
+&lt;p&gt;I talked about some of my love of San Francisco in this brief clip I did for SpringOne - [take a look: &lt;/p&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/GF5IJGwpY5k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;&lt;h2&gt;&lt;a href="#conclusion" class="anchor" name="conclusion"&gt;&lt;/a&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;Do you know what&amp;rsquo;s crazy? This list doesn&amp;rsquo;t come close to being exhaustive! I guess we&amp;rsquo;ve all got the SpringOne we want to see. What does yours look like?&lt;/p&gt;
+&lt;p&gt;Haven&amp;rsquo;t you gotten your ticket yet? Register now for SpringOne, running 6-8 December 2022 in San Francisco, my favorite west coast city in the USA, and my hometown. If you register now, there&amp;rsquo;s a $200 &lt;em&gt;discount&lt;/em&gt; from the pass price with this code &lt;code&gt;S1VM22_Advocate_200&lt;/code&gt;. I can&amp;rsquo;t wait to see you there. &lt;/p&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>Spring Boot 3.0.0-M5 available now</title>
     <link rel="alternate" href="https://spring.io/blog/2022/09/22/spring-boot-3-0-0-m5-available-now" />
@@ -732,19 +758,6 @@ implementation(&amp;#39;org.springframework.cloud:spring-cloud-starter-sleuth&am
 implementation &amp;#39;org.springframework.cloud:spring-cloud-sleuth-otel-autoconfigure&amp;#39; // ... and we want to include the one coming from Spring Cloud Sleuth OTel&#xD;
 }
 &lt;/code&gt;&lt;/pre&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>A Bootiful Podcast: big data legend, former Pivot, and friend to the Spring community, Tim Spann</title>
-    <link rel="alternate" href="https://spring.io/blog/2022/09/15/a-bootiful-podcast-big-data-legend-former-pivot-and-friend-to-the-spring-community-tim-spann" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Josh Long</name>
-    </author>
-    <id>tag:spring.io,2022-09-15:4906</id>
-    <updated>2022-09-15T16:00:00Z</updated>
-    <content type="html">&lt;p&gt;Hi, Spring fans! In this installment, &lt;a href="https://twitter.com/starbuxman"&gt;Josh Long (@starbuxman)&lt;/a&gt; talks to big data legend, former Pivot, and friend to the Spring community, &lt;a href="https://twitter.com/PaaSDev"&gt;Tim Spann (@PaaSDev)&lt;/a&gt;, about big data, StreamNative, and Apache Pulsar, and Spring for Apache Pulsar. Get your notebooks ready for this one, class! &lt;/p&gt;
-&lt;iframe title="Big data legend, former Pivot, and friend to the Spring community, Tim Spann " allowtransparency="true" height="150" width="100%" style="border: none; min-width: min(100%, 430px);" scrolling="no" data-name="pb-iframe-player" src="https://www.podbean.com/player-v2/?i=fkubq-12c5465-pb&amp;from=pb6admin&amp;share=1&amp;download=1&amp;rtl=0&amp;fonts=Arial&amp;skin=1&amp;font-color=&amp;logo_link=episode_page&amp;btn-skin=7"&gt;&lt;/iframe&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
 </feed>

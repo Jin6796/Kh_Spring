@@ -2,100 +2,112 @@
     pageEncoding="UTF-8"%>
 <%@ page import="com.example.demo.vo.MemberVO" %>
 <%
-	MemberVO mVO = (MemberVO)session.getAttribute("mVO");
-	String s_id   = null;
-	String s_name = null;
-	
-	if(mVO!=null) {
-	s_id   = mVO.getMem_id();
-	s_name = mVO.getMem_name();
-	out.print("회원입니다. [회원 아이디: " + s_id+"], [회원 이름: "+s_name+"]"); // 처음에는 null, null이 찍힐 듯
-	} else {
-		out.print("비회원입니다.");
+	String smem_id = (String)session.getAttribute("smem_id");
+	String smem_name = (String)session.getAttribute("smem_name");
+	if(smem_id == null){
+	out.print("로그인을 해주세요.");
+	}else{
+	out.print("사용자 아이디: " + smem_id + ", " + "사용자 이름: " + smem_name);
 	}
-//	out.print("위치 어디야?");
 %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>인증처리 - 쿠키와 세션</title>
-<%@include file="../common/easyui_common.jsp" %>
-<style type="text/css">
-	a {
-		text-decoration: none;
-		color: black;
-	}
-</style>
-<script type="text/javascript">
-// 함수 선언은 head 태그 안에서!!!
-// easyui_common.jsp
-	function login(){
-		const tb_id = $("#mem_id").val();
-		const tb_pw = $("#mem_pw").val();			
-		location.href="./login.pj?mem_id="+tb_id+"&mem_pw="+tb_pw;
-	}
-	function logout(){ // 로그아웃
-		location.href="./logout.jsp";
-	}
-	// 순서 지향적인, 절차 지향적인 코딩을 전개 하는 데에서 모듈화 해 나가는 것, 비동기 처리하는 연습(await/async)
-	function memberList(){ // 회원목록
-        alert($("#_easyui_textbox_input4").val());
-	
-        let type = null;
-        let keyword = null;
-
-        if($("#_easyui_textbox_input4").val()!=null && $("#_easyui_textbox_input4").val()) {
-            type = "mem_id";
-            keyword = $("#_easyui_textbox_input4").val();
-        }
-        else if($("#_easyui_textbox_input5").val()!=null && $("#_easyui_textbox_input5").val()) {
-            type = "mem_name";
-            keyword = $("#_easyui_textbox_input5").val();
-        }
-
-//		alert("회원목록 호출 성공");
-		// 아래 코드는 클라이언트 측에 같이 다운로드가 완료된 상태에서 처리된다. - 결정이 되었다.
+	<%@include file="../common/easyui_common.jsp" %>
+	<style type="text/css">
+		a {
+			text-decoration: none;
+			color: black;
+		}
+	</style>
+	<script type="text/javascript">
+		let to_id;   // 받는 사람 아이디 - 쪽지쓰기 로우에서 자동으로 담기. 수동입력X
+		let to_name; // 받는 사람 이름
+	// 함수 선언은 head 태그 안에서!!!
+	// easyui_common.jsp
+		function login(){
+			const tb_id = $("#mem_id").val();
+			const tb_pw = $("#mem_pw").val();			
+			location.href="/member/login?mem_id="+tb_id+"&mem_pw="+tb_pw;
+		}
+		function logout(){ // 로그아웃
+			location.href="./logout.jsp";
+		}
+		// 순서 지향적인, 절차 지향적인 코딩을 전개 하는 데에서 모듈화 해 나가는 것, 비동기 처리하는 연습(await/async)
+		function memberList(){ // 회원목록
+	        //alert($("#_easyui_textbox_input4").val());
 		
-		// 시점 문제 유의하자
-		// jeasyUI datagrid에서도 get/post방식을 지원함
-		$("#dg_member").datagrid({
-			// 오라클 서버에서 요청한 결과를 myBatis를 사용하면 자동으로 컬럼명이 대문자! 단, List<XXVO>형태라면 그땐 소문자가 맞다.
-			method:"get"
-		// url 속성에 XXX.jsp가 오면 표준 서블릿인 HttpServlet이 관여하는 것이고 XXX.pj로 요청하면 ActionSupport가 관여하는 것
-			,url: "/member/memberList.pj?type="+type+"&keyword="+keyword // JSON으로 전달하는 페이지가 조립이 되어야 한다. (응답페이지는 html이 아니라 JSON포맷의 파일이어야 한다.)
-			,onDblClickCell: function(index,field,value){
-				console.log(index + ", " + field + ", " + value);
-				if("BUTTON" == field){
-					alert("쪽지쓰기 클릭");
+	        let type = null;
+	        let keyword = null;
+	
+	        if($("#_easyui_textbox_input4").val()!=null && $("#_easyui_textbox_input4").val()) {
+	            type = "mem_id";
+	            keyword = $("#_easyui_textbox_input4").val();
+	        }
+	        else if($("#_easyui_textbox_input5").val()!=null && $("#_easyui_textbox_input5").val()) {
+	            type = "mem_name";
+	            keyword = $("#_easyui_textbox_input5").val();
+	        }
+	
+	//		alert("회원목록 호출 성공");
+			$("#dg_member").datagrid({
+				method:"get"
+				,url: "/member/jsonMemberList?type="+type+"&keyword="+keyword // JSON으로 전달하는 페이지가 조립이 되어야 한다. (응답페이지는 html이 아니라 JSON포맷의 파일이어야 한다.)
+				,onSelect: function(index, row){
+					to_id = row.MEM_ID;     // 데이터그리드 선택 시 해당 로우의 아이디 담기
+					to_name = row.MEM_NAME; // 데이터그리드 선택 시 해당 로우의 이름 담기
+					console.log("아이디: " + to_id + ", " + "이름: " + to_name)
 				}
-			}
-		});	
-        $("#d_member").show();
-		$("#d_memberInsert").hide();
-	}
-	function memberInsert(){ // 회원등록
-		alert("회원등록 호출 성공");
-		$("#d_member").hide();
-		$("#d_memberInsert").show();
-	}
-	function memberDelete(){ // 회원삭제
-		alert("회원삭제 호출 성공");
-	}
-</script>
+				,onDblClickCell: function(index,field,value){
+					console.log(index + ", " + field + ", " + value);
+					if("BUTTON" == field){
+						alert("쪽지쓰기 클릭");
+					}
+				}
+			});	
+	        $("#d_member").show();
+			$("#d_memberInsert").hide();
+		}
+		function memberInsert(){ // 회원등록
+			alert("회원등록 호출 성공");
+			$("#d_member").hide();
+			$("#d_memberInsert").show();
+		}
+		function memberDelete(){ // 회원삭제
+			alert("회원삭제 호출 성공");
+		}
+		function memoForm(){
+			console.log("memoForm 호출");
+			$("#dlg_memo").dialog({
+				title: "쪽지쓰기",
+				href: "/memo/memoForm.jsp?to_id="+to_id+"&to_name="+to_name,
+				modal: true,
+				closed: true
+			});
+			$("#dlg_memo").dialog('open');
+		}
+		function memoSend(){
+			console.log("쪽지보내기");
+			$("#f_memo").submit();
+		}
+		function memoFormClose(){
+			$("#dlg_memo").dialog('close');
+		}
+	</script>
 </head>
 <body>
 	<script>
 	// DOM트리가 다 그려진건가?
 	// DOM트리가 다 그려졌을 때(준비되었을 때) - 메소드 이름도 ready !!
 	$(document).ready(function(){
-
 		$("#d_member").hide();
 		$("#d_memberInsert").hide();
-
+		$("#mem_id").textbox('setValue', 'tomato');
+		$("#mem_pw").textbox('setValue', '123');
 /* 
 		$("#dg_memberInsert").datagrid({
-			
 		});
 */
 	});
@@ -111,7 +123,7 @@
 <%
 //	String s_name = (String)session.getAttribute("s_name");
 	//s_name = "이순신";
-	if(s_name ==null){
+	if(smem_name ==null){
 %>
 <!-- ######################## 로그인 영역 ################### -->      
       <div id="d_login" align="center">
@@ -148,7 +160,7 @@
 %>
 <!-- ######################## 로그아웃 영역 ################### -->   
       <div id="d_logout" align="center">
-         <div id="d_ok"><%=s_name%>님 환영합니다.</div>
+         <div id="d_ok"><%=smem_name%>님 환영합니다.</div>
          <div style="margin:3px 0"></div>
          <a id="btn_login" href="javascript:logout()" class="easyui-linkbutton" data-options="iconCls:'icon-cancel'">
             로그아웃
@@ -164,7 +176,7 @@
 <!-- ######################## 메뉴 영역 시작  ##################### -->
 	  <div style="margin:20px 0;"></div>
 <%
-if (mVO!=null){
+if (smem_id!=null){
 %>
 	        <ul id="tre_gym" class="easyui-tree">
 	            <li data-options="state:'closed'">
@@ -254,9 +266,16 @@ if (mVO!=null){
 	        	<div style="margin: 20px 0;"></div>
 	        	<div id="dg_memberInsert">회원등록 화면 보여주기</div>
 	        </div>
-        
-        
         </div>
     </div>
+<!-- 쪽지쓰기 화면 시작 -->	
+	<div id="dlg_memo" footer="#dlg_memo" class="easyui-dialog" 
+		 title="쪽지쓰기" data-options="modal:true,closed:true" 
+		 style="width: 600px; padding: 10px;"> <!-- height:300px; 지움. -->
+		<div id="btn_memo" align="right">
+			<a href="javascript:memoFormClose()" class="easyui-linkbutton" iconCls="icon-clear">닫기</a>
+		</div>
+	</div>
+<!-- 쪽지쓰기 화면 끝 -->
 </body>
 </html>

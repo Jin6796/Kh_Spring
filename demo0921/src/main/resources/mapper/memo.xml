@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.mapper.memberMapper">
+	<insert id="memoInsert" parameterType="map">
+		INSERT INTO memo(no, from_id, to_id, memo_content, create_date, read_yn)
+		VALUES(seq_memo_no.nextval, #{from_id}, #{to_id}, #{memo_content}, to_char(sysdate, 'YYYY-MM-DD'), 'N')
+	</insert>
+	<select id="sendMemoList" parameterType="map" resultType="map">
+		SELECT memo_content, mem_name, from_id,
+	       create_date "날짜", DECODE(read_yn, 'Y', '읽음', 'N', '읽지 않음') as read_yn
+		  FROM member, memo
+		 WHERE mem_id = to_id 
+		   AND from_id = #{from_id}
+	</select>
+	<select id="receiveMemoList" parameterType="map" resultType="map">
+		SELECT memo_content, mem_name, to_id,
+		       create_date "날짜", DECODE(read_yn, 'Y', '읽음', 'N', '읽지 않음') as read_yn
+		  FROM member, memo
+		 WHERE mem_id = from_id
+		   AND to_id =  #{to_id}
+	</select>
+</mapper>

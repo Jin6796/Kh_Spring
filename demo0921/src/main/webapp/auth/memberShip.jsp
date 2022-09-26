@@ -11,6 +11,8 @@
 		console.log(zipcode);
 		$("#_easyui_textbox_input4").val(zipcode);
 		$("#_easyui_textbox_input5").val(address);
+		$("input[name=mem_zipcode]").val(zipcode);
+		$("input[name=mem_address]").val(address);
 		$("#dlg_zipcode").dialog('close');
 	}
 	function zipcodeSearch(){

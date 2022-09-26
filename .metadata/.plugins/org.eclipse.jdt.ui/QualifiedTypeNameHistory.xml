@@ -40,9 +40,11 @@
     <fullyQualifiedTypeName name="org.apache.logging.log4j.Logger"/>
     <fullyQualifiedTypeName name="org.apache.logging.log4j.LogManager"/>
     <fullyQualifiedTypeName name="org.springframework.dao.DataAccessException"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="com.example.demo.logic.CommonLogic"/>
+    <fullyQualifiedTypeName name="com.example.demo.logic.MemberLogic"/>
+    <fullyQualifiedTypeName name="com.example.demo.vo.MemberVO"/>
     <fullyQualifiedTypeName name="org.slf4j.LoggerFactory"/>
     <fullyQualifiedTypeName name="org.slf4j.Logger"/>
-    <fullyQualifiedTypeName name="com.example.demo.logic.MemberLogic"/>
+    <fullyQualifiedTypeName name="com.google.gson.Gson"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>

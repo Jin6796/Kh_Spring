@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import org.slf4j.Logger;
@@ -21,8 +22,27 @@ public class MemoController {
 	private MemoLogic memoLogic = null;
 	
 	@GetMapping("memoInsert")
-	public String memberInsert(@RequestParam Map<String,Object> pMap) {
+	public String memoInsert(@RequestParam Map<String,Object> pMap) {
 		logger.info("memoInsert 호출 성공: " + pMap);
+		int result = 0;
+		result = memoLogic.memoInsert(pMap);
 		return "redirect:/auth/index.jsp";
+	}
+	
+	@GetMapping("sendMemoList")
+	public String sendMemoList(@RequestParam Map<String,Object> pMap) {
+		List<Map<String,Object>> sendMemoList = null;
+		sendMemoList = memoLogic.sendMemoList(pMap);
+		logger.info("memoList 호출 성공: " + pMap);
+	    // @RestController, @ResponseBody의 차이?
+		return "redirect:/memo/jsonSendMemoList.jsp";
+	}
+	
+	@GetMapping("receiveMemoList")
+	public String receiveMemoList(@RequestParam Map<String,Object> pMap) {
+		List<Map<String,Object>> receiveMemoList = null;
+		receiveMemoList = memoLogic.receiveMemoList(pMap);
+		logger.info("memoList 호출 성공: " + pMap);
+		return "redirect:/memo/jsonSendReceiveList.jsp";
 	}
 }
