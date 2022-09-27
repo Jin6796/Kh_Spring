@@ -30,17 +30,40 @@ public class MemoDao {
 		return result;
 	}
 
+	// 받은 쪾지 중 읽지 않은 쪽지 카운트하기
+	public int noReadMemo(Map<String,Object> pMap) {
+		logger.info("noReadMemo 호출 성공 ==> "+ pMap); // pMap에 to_id가 있어야 null이 뜨지 않음.
+		int cnt = 0;
+		cnt = sqlSessionTemplate.selectOne("noReadMemo", pMap);
+		logger.info("cnt ==> " + cnt);
+		return cnt;
+	}
+	
 	public List<Map<String, Object>> sendMemoList(Map<String, Object> pMap) {
 		logger.info("sendMemoList 호출 성공 ==> "+ pMap);
 		List<Map<String, Object>> sendMemoList = null;
 		sendMemoList = sqlSessionTemplate.selectList("sendMemoList", pMap);
+		logger.info(sendMemoList.toString());
 		return sendMemoList;
 	}
 
 	public List<Map<String, Object>> receiveMemoList(Map<String, Object> pMap) {
-		logger.info("receiveMemoList 호출 성공 ==> "+ pMap);
+		logger.info("receiveMemoList 호출 성공"+ pMap);
 		List<Map<String, Object>> receiveMemoList = null;
 		receiveMemoList = sqlSessionTemplate.selectList("receiveMemoList", pMap);
+		logger.info(receiveMemoList.toString());
 		return receiveMemoList;
+	}
+
+	public Map<String, Object> memoContent(Map<String, Object> pMap) {
+		Map<String, Object> rmap = null;
+		rmap = sqlSessionTemplate.selectOne("memoContent", pMap);
+		logger.info("memoContent 호출 성공 ==> "+ rmap);
+		return rmap;
+	}
+
+	public void readYnUpdate(Map<String, Object> pMap) {
+//		logger.info("readYnUpdate 호출 성공 ==> "+ pMap);
+		sqlSessionTemplate.update("readYnUpdate", pMap);
 	}
 }

@@ -18,7 +18,7 @@ import com.example.demo.vo.MemberVO;
 
 @Controller
 @RequestMapping("/member/*")
-@SessionAttributes({"smem_id","smem_name"})
+@SessionAttributes({"smem_id","smem_name", "s_cnt"})
 public class MemberController {
    Logger logger = LoggerFactory.getLogger(MemberController.class);
    
@@ -31,12 +31,12 @@ public class MemberController {
       
       MemberVO mVO = null;
       mVO = memberLogic.login(pMap);
-      
+      // 로그인 했지?
       if(mVO != null) {
          session.setAttribute("smem_id", mVO.getMem_id());
          session.setAttribute("smem_name", mVO.getMem_name());
+         session.setAttribute("s_cnt", mVO.getCount());
       }
-      
       return "redirect:/auth/index.jsp";
    }
    
