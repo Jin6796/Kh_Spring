@@ -3,12 +3,14 @@
 <%@ page import="com.example.demo.vo.MemberVO" %>
 <%
 	int s_cnt = 0;
+		out.println(session.getAttribute("s_cnt"));
 	if(session.getAttribute("s_cnt") != null){
 		s_cnt = (Integer)session.getAttribute("s_cnt");
 		out.println("if문 탔음");
 	}else{
 		out.println("if문 안탔음");
 	}
+	
 	String smem_id = (String)session.getAttribute("smem_id");
 	String smem_name = (String)session.getAttribute("smem_name");
 	if(smem_id == null){

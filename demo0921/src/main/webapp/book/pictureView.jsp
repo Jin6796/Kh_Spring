@@ -30,8 +30,8 @@
 </script>
 </head>
 <body>
-	<table>
-		<thead border="1">
+	<table border="1">
+		<thead>
 			<th colspan="2">그림 목록</th>
 		</thead>
 		<tbody>

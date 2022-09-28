@@ -21,7 +21,7 @@ public class MemoLogic {
 	public int memoInsert(Map<String, Object> pMap) {
 		int result = 0;
 		result = memoDao.memoinsert(pMap);
-		return 0;
+		return result;
 	}
 
 	public List<Map<String, Object>> sendMemoList(Map<String, Object> pMap) {

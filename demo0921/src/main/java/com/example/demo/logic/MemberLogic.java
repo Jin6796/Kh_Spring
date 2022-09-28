@@ -43,6 +43,8 @@ public class MemberLogic {
 		// 읽지 않은 쪽지 담기
 		int cnt = 0;
 		mVO = memberDao.login(pMap);
+		logger.info("pMap: "+ pMap);
+		logger.info("mVO: "+ mVO);
 		// 로그인한거지?
 		if(mVO != null) {
 			String to_id = null;

@@ -1,12 +1,9 @@
 package com.example.demo.vo;
 
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+
 // Getter/Setter를 작성하지 않아도 되는데.. 왜?왜? 난 왜 안돼?
 @Data
-//@Getter
-//@Setter
 public class MemberVO {
 	private int    mem_no      = 0;
 	private String mem_id      = null;
@@ -55,11 +52,9 @@ public class MemberVO {
 		this.mem_address = mem_address;
 	}
 	public void setCount(int cnt) {
-		// TODO Auto-generated method stub
-		
+		this.count = cnt;
 	}
-	public Object getCount() {
-		// TODO Auto-generated method stub
-		return null;
+	public int getCount() {
+		return count;
 	}
 }  
