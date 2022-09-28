@@ -14,8 +14,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class CommonDao {
 	Logger logger = LogManager.getLogger(CommonDao.class);
+	
 	@Autowired(required=false)
 	private SqlSessionTemplate sqlSessionTemplate = null;
+	
 	public List<Map<String, Object>> zipcodeList(String dong) {
 		logger.info("zipcodeList 호출 성공 : "+dong);
 		List<Map<String, Object>> zipList = null;

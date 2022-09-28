@@ -15,6 +15,7 @@ import com.example.demo.logic.MemberLogic;
 @Service // 모델 계층에 붙이는 @Component의 자손 어노테이션!
 public class MemoDao {
 	Logger logger = LoggerFactory.getLogger(MemoDao.class);
+	
 	@Autowired(required = false)
 	private SqlSessionTemplate sqlSessionTemplate = null;
 	

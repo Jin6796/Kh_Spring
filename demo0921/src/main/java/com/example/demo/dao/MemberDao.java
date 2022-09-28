@@ -16,6 +16,7 @@ import com.example.demo.vo.MemberVO;
 @Service // 모델 계층에 붙이는 @Component의 자손 어노테이션!
 public class MemberDao {
 	Logger logger = LoggerFactory.getLogger(MemberDao.class);
+	
 	@Autowired(required = false)
 	private SqlSessionTemplate sqlSessionTemplate = null;
 	
