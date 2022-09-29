@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 <%@ include file="../common/easyui_common.jsp" %>
 <style type="text/css">
-	#d_search {
+	#d_detail {
 		position:absolute;
 	}
 </style>
@@ -15,17 +15,17 @@
 	function startMethod(td){
 		$.ajax({
 			  method: "GET",
-			  url: "./pictureInfo.jsp?p_no=2",
+			  url: "./pictureInfo.jsp?p_no="+td.id,
 			  success:function(result) { // result -> searchResult.jsp -> html태그들
 				console.log(result); // JSON 포맷으로 찍힌다.
-			  },
-			  error:function(e){
+			  }
+			 ,error:function(e){
 				  $("#d_search").text(e.responseText); // 에러메세지 출력 - 디버깅
 			  }
 		});
 	}
 	function clearMethod(){
-		document.getElementByID("d_detail").innerHTML="";
+		document.getElementById("d_detail").innerHTML="";
 	}
 </script>
 </head>
@@ -37,22 +37,22 @@
 		<tbody>
 			<tr>
 				<td align="center"><img src="../images/picture1.jpg" width="50" height="50"></td>
-				<td id="1" onmouseover="startMethod(this)" onmouseout="clearMethod()">추상화 1</td>
+				<td id="1" onmouseover="startMethod(this)" onmouseout="clearMethod()">추상화1</td>
 			</tr>
 			<tr>
 				<td align="center"><img src="../images/picture2.jpg" width="50" height="50"></td>
-				<td id="1" onmouseover="startMethod(this)" onmouseout="clearMethod()">추상화 2</td>
+				<td id="2" onmouseover="startMethod(this)" onmouseout="clearMethod()">추상화2</td>
 			</tr>
 			<tr>
 				<td align="center"><img src="../images/picture3.jpg" width="50" height="50"></td>
-				<td id="1" onmouseover="startMethod(this)" onmouseout="clearMethod()">추상화 3</td>
+				<td id="3" onmouseover="startMethod(this)" onmouseout="clearMethod()">추상화3</td>
 			</tr>
 			<tr>
 				<td align="center"><img src="../images/picture4.jpg" width="50" height="50"></td>
-				<td id="1" onmouseover="startMethod(this)" onmouseout="clearMethod()">추상화 4</td>
+				<td id="4" onmouseover="startMethod(this)" onmouseout="clearMethod()">추상화4</td>
 			</tr>
 		</tbody>
 	</table>
-
+	<div id="d_detail"></div>
 </body>
 </html>
