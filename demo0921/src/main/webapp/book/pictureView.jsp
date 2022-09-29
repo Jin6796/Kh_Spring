@@ -12,12 +12,19 @@
 	}
 </style>
 <script type="text/javascript">
+	function makeInfo(result){
+		console.log(result);
+			let picHTML = "";
+			return picHTML;
+	}
 	function startMethod(td){
 		$.ajax({
 			  method: "GET",
 			  url: "./pictureInfo.jsp?p_no="+td.id,
 			  success:function(result) { // result -> searchResult.jsp -> html태그들
 				console.log(result); // JSON 포맷으로 찍힌다.
+				let picHTML = makeInfo(result);
+				$("#d_detail").html(picHTML);
 			  }
 			 ,error:function(e){
 				  $("#d_search").text(e.responseText); // 에러메세지 출력 - 디버깅
