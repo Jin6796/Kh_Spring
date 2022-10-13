@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="td.id"/>
+		<item key="selection" value="Con"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="controller"/>
+			<item value="con"/>
+			<item value="boardController"/>
 			<item value="td.id"/>
 			<item value="count"/>
 			<item value="receiveMemoList"/>
@@ -20,9 +23,6 @@
 			<item value="javascript:memoForm()"/>
 			<item value="javascript"/>
 			<item value="쪽지쓰기&lt;/a&gt;"/>
-			<item value="쪽지스기"/>
-			<item value="스기"/>
-			<item value="tmrl"/>
 		</list>
 		<list key="replacehistory">
 			<item value="memo"/>
